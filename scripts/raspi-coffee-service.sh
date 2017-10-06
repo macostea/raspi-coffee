@@ -1,11 +1,11 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          <NAME>
+# Provides:          raspi-coffee
 # Required-Start:    $local_fs $network $named $time $syslog
 # Required-Stop:     $local_fs $network $named $time $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Description:       <DESCRIPTION>
+# Description:       Raspberry Pi Connected Coffee Maker with HomeKit
 ### END INIT INFO
 
 SCRIPT=/usr/bin/raspi-coffee
