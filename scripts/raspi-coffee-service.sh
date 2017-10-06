@@ -8,7 +8,7 @@
 # Description:       Raspberry Pi Connected Coffee Maker with HomeKit
 ### END INIT INFO
 
-SCRIPT=/usr/bin/raspi-coffee
+SCRIPT=/usr/local/bin/raspi-coffee
 RUNAS=root
 
 PIDFILE=/var/run/raspi-coffee.pid
