@@ -7,20 +7,19 @@ VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null 
 all: get-deps out/bin/raspi-coffee
 
 out/bin/raspi-coffee:
-                        go build \
-                        -tags release \
-                        -ldflags '-X raspi-coffee/cmd.Version=$(VERSION) -X raspi-coffee/cmd.BuildDate=$(DATE)' \
-                        -o out/bin/raspi-coffee coffee.go
+						go build \
+						-tags release \
+						-ldflags '-X raspi-coffee/cmd.Version=$(VERSION) -X raspi-coffee/cmd.BuildDate=$(DATE)' \
+						-o out/bin/raspi-coffee coffee.go
 
 clean:
-                        rm -rf out/
-                        echo Clean complete
+						rm -rf out/
+						echo Clean complete
 
 get-deps:
-                        go get
+						go get
 
 install:
-                        cp out/bin/raspi-coffee /usr/local/bin/raspi-coffee
-                        cp scripts/raspi-coffee-service.sh /etc/init.d/raspi-coffee
-                        update-rc.d raspi-coffee defaults
-                        
+						cp out/bin/raspi-coffee /usr/local/bin/raspi-coffee
+						cp scripts/raspi-coffee-service.sh /etc/init.d/raspi-coffee
+						update-rc.d raspi-coffee defaults
