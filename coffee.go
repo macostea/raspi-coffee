@@ -6,6 +6,7 @@ import (
 	"github.com/stianeikeland/go-rpio"
 	"log"
 	"time"
+	"net"
 )
 
 func togglePin(pin rpio.Pin) {
@@ -22,6 +23,18 @@ func turnCoffeeMakerOn(pin rpio.Pin) {
 func turnCoffeeMakerOff(pin rpio.Pin) {
 	log.Println("Turn Coffee Maker Off")
 	togglePin(pin)
+}
+
+func waitForInternetConnection(try int) {
+	if try <= 0 {
+		log.Panic("No internet connection detected")
+	}
+	_, err := net.Dial("tcp", "google.com:80")
+	if err != nil {
+		log.Println("Waiting for connection. Try number " + string(try))
+		time.Sleep(time.Second * 5)
+		waitForInternetConnection(try - 1)
+	}
 }
 
 func main() {
@@ -51,6 +64,8 @@ func main() {
 		}
 	})
 
+	waitForInternetConnection(10)
+	
 	t, err := hc.NewIPTransport(hc.Config{Pin: "84297450"}, acc.Accessory)
 	if err != nil {
 		log.Fatal(err)
