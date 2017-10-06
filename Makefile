@@ -22,4 +22,5 @@ get-deps:
 install:
 						cp out/bin/raspi-coffee /usr/local/bin/raspi-coffee
 						cp scripts/raspi-coffee-service.sh /etc/init.d/raspi-coffee
+						chmod +x /etc/init.d/raspi-coffee
 						update-rc.d raspi-coffee defaults
