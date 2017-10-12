@@ -10,7 +10,7 @@ out/bin/raspi-coffee:
 						go build \
 						-tags release \
 						-ldflags '-X raspi-coffee/cmd.Version=$(VERSION) -X raspi-coffee/cmd.BuildDate=$(DATE)' \
-						-o out/bin/raspi-coffee coffee.go
+						-o out/bin/raspi-coffee
 
 clean:
 						rm -rf out/

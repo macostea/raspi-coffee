@@ -3,6 +3,7 @@
 *.dll
 *.so
 *.dylib
+raspi-coffee
 
 # Test binary, build with `go test -c`
 *.test
@@ -17,3 +18,5 @@
 .DS_Store
 
 .idea/
+
+out/
